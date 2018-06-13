@@ -1,4 +1,4 @@
-@extends('layouts.admin_master')
+@extends('layouts.user_master')
 
 @section('content')
 <!--header end here-->
@@ -26,7 +26,7 @@
                   </div>
                 @endif
 
-                <form role="form" method="POST" action="{{ url('/administrator/change-password') }}">
+                <form role="form" method="POST" action="{{ route('passwordrest') }}">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <input style="width: 200px" type="password" id="old_password" name="old_password" class="form-control" placeholder="Old Password"  required="required">
@@ -34,12 +34,12 @@
                         <input style="width: 200px" type="password" id="password" name="password" class="form-control" placeholder="New Password"  required="required"> 
                         <br>
                         <div style="display: flex; flex-direction: row">
-                                <input style="width: 200px" type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm New Password" required="required">
-                                <i style="margin-top:15px; margin-left:2px;" id="ok_msg2"></i>
-                                <span style="margin-top:15px; margin-left:2px;"  class="text-danger" id="ferror_msg2"></span>
+                            <input style="width: 200px" type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm New Password" required="required">
+                            <i style="margin-top:15px; margin-left:2px;" id="ok_msg2"></i>
+                            <span style="margin-top:15px; margin-left:2px;"  class="text-danger" id="ferror_msg2"></span>
                         </div>
+                        
                         <br>
-                        <input style="width: 200px" type="password" id="secret_pin" name="secret_pin" class="form-control" placeholder="Enter Secret Pin" maxlength="4" required="required">
                     </div>
                     <br>
                     <input type="submit" name="submit" value="Submit" class="btn btn-primary" id="submitbtn">

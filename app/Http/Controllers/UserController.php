@@ -30,6 +30,49 @@ class UserController extends Controller
     	return view('dashboard.dashboardedit', $data);
     }
 
+    public function resetPassword() {
+        return view('auth.change_password');
+    }
+
+    
+    public function changepassword(Request $request) {
+        try {
+            //validate the form
+            $this->validate(request(), [
+                'old_password' => 'required',
+                'password' => 'required|confirmed'
+            ]);
+
+            $user = Auth::user();
+            $input_password = $request["old_password"];
+            $new_password = $request["password"];
+
+            $credentials = [
+                'email' => $user->email,
+                'password' => $input_password,
+            ];
+
+            //authenticate details
+            if (auth()->attempt($credentials))
+            {
+                
+                $user->password = bcrypt($new_password);
+                $user->save();
+
+                Auth::logout();
+                return redirect('/login');
+            
+            }else{
+                return redirect()->back()->withErrors("Old password doesn't match.")->withInput();
+            }
+ 
+        }catch(ValidationException $e){
+           // Rollback and then redirect // back to form with errors
+           return redirect()->back()->withErrors( $e->getErrors() )->withInput();
+        }
+    
+    }
+
     public function pm_order() {
     	$user_id = Auth::user()->id;
         $data['id'] = $user_id;

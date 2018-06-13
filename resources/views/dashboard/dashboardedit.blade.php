@@ -164,6 +164,28 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
+
+                    {{-- change password --}}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-edit fa-fw"></i> 
+                            <div class="pull-right">
+                                <div class="btn-group"></div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <a href="{{ route('resetpassword') }}" class="btn btn-primary btn-block btn-lg">Change Password</a>
+                                </div>
+                                <div class="col-md-4"></div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+
                     </div>
 
                     <div class="col-lg-6">
@@ -203,6 +225,8 @@
                     </div>
 
                     <!-- /.panel .chat-panel -->
+
+
                 </div>
                     </div>
 

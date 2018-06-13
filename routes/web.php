@@ -104,7 +104,8 @@ Route::group(['middleware'=>'auth'], function() {
 	Route::get('pm_details/{id}', 'NotifyUserController@pm_details');
 	Route::get('confirm_bit/{id}', 'NotifyUserController@confirm_bit');
 	Route::get('load_confirmbitsell/{id}', 'NotifyUserController@load_confirmbitsell');
-
+	Route::get('resetpassword', 'UserController@resetPassword')->name('resetpassword');
+	Route::post('passwordreset', 'UserController@changepassword')->name('passwordrest');
 
 
 
