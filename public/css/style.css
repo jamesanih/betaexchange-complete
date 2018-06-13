@@ -1,0 +1,45 @@
+
+/*Mark input boxes that get an error on validation*/
+input.invalid {
+	/*background-color: red;*/
+	border-color: red;
+}
+
+/* Style the form */
+/*#form {
+  
+  margin: 100px auto;
+ 
+}*/
+
+
+/* Hide all steps by default: */
+.form-tab {
+  display: none;
+}
+
+.error{
+	font-style: red;
+	display: none;
+}
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none; 
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: blue;
+}
